@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+a{
+    text-decoration: none;
+}
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+p{
+    color: white;
+    text-align: left;
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+}
+.container{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*hero section*/
+#hero{
+    background-image: url(./images/she\ hacks.1.webp);
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+    z-index: 1;
+}
+#hero::after{
+    content:'';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.7;
+    z-index: -1;
+}
+#hero .hero{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px;
+    justify-content: flex-start;
+}
+#hero h1{
+    display:block;
+    width:fit-content;
+    font-size: 3rem;
+    position:relative;
+    color:rgb(15, 121, 121);
+    animation: text_reveal .5s ease forwards;
+    animation-delay: 1s;
+
+}
+#hero h1 span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    animation: text_reveal_box 1s ease;
+    animation-delay: 1s;
+}
+#hero .cta{
+    display:inline-block;
+    font-size: 2rem;
+    padding: 10px 30px;
+    color:white;
+    background-color: transparent;
+    border:2px solid crimson;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin-top: 30px;
+    transition: .5s ease;
+    transition-property: background-color, color;
+}
+#hero .cta:hover{
+    color: rgb(16, 137, 158);
+    background-color: crimson;
+}
+
+/*end hero section*/
+/*organisers section*/
+#organisers .organisers{
+    flex-direction: column;
+    text-align: center;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+#organisers .section-title{
+    font-size: 3rem;
+    font-weight: 300;
+    color:black;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    text-align: center;
+}
+
+#organisers .organisers-top p{
+    color: black;
+    font-size: 1.4rem;
+    margin-top:5px;
+    line-height: 2.5rem;
+    font-weight: 300;
+    letter-spacing: .05rem;
+}
+#organisers .organisers-bottom{
+    display: floex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+#organisers .organiser-item{
+    flex-basis: 80%;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 10px;
+    background-image: url(./images/org.jfif);
+    background-size: cover;
+    margin: 10px 5%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+#organisers .organiser-item::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+    opacity: .8;
+    z-index: -1;
+}
+#organisers .organiser-item .icon{
+    height: 80px;
+    width: 80px;
+    margin-bottom: 20px;
+}
+#organisers .organiser-item h2{
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+/*end organisers section*/
+
+/*keyframes*/
+@keyframes text_reveal_box{
+    50% {
+        width: 100%;
+        left: 0;
+    }
+    100% {
+        width: 0;
+        left: 100%;
+    }
+}
+@keyframes text_reveal{
+    100%{
+        color:rgb(3, 183, 189);
+    }
+
+}
+/*end keyframes*/
