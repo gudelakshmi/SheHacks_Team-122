@@ -22,6 +22,8 @@ p{
     text-align: left;
     font-size: 1.4rem;
     line-height: 1.9rem;
+    font-weight: 600;
+    letter-spacing: .2px;
 }
 .section-title{
     font-size: 3rem;
@@ -60,6 +62,138 @@ p{
     color: rgb(16, 137, 158);
     background-color: rgb(4, 240, 248);
 }
+/*header*/
+#header {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: auto;
+}
+#header .header {
+    min-height: 8vh;
+    background-color: rgba(31, 30, 30, 0.24);
+    transition: .3s ease background-color;
+}
+#header .header .nav-bar h1 {
+    color: white;
+    font-size: 30px;
+    font-weight: 800;
+}
+#header .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    max-width: 1300px;
+    padding: 0 10px;
+}
+#header .nav-list ul {
+    list-style: none;
+    position: absolute;
+    background-color: rgb(31, 30, 30);
+    width: 100vw;
+    height: 100vh;
+    left: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    overflow-x: hidden;
+    transition: .5s ease left;
+}
+#header .nav-list ul.active {
+    left: 0%;
+}
+#header .nav-list ul a {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: .2rem;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    padding: 20px;
+    display: block;
+}
+#header .nav-list ul a::after {
+    content: attr(data after);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: rgba(240, 248, 255, 0.021);
+    font-size: 13rem;
+    letter-spacing: 50px;
+    z-index: -1;
+    transition: .3s ease letter-spacing;
+}
+#header .nav-list ul li:hover a::after {
+    transform: translate(-50%, -50%) scale(1);
+    letter-spacing: initial;
+}
+#header .nav-list ul li:hover a {
+    color: crimson;
+}
+#header .hamburger {
+    height: 60px;
+    width: 60px;
+    display: inline-block;
+    border: 3px solid white;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    cursor: pointer;
+    transform: scale(.8);
+    margin-right: 20px;
+}
+#header .hamburger:after {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 3px solid white;
+    animation: hamburger_puls 1s ease infinite;
+}
+#header .hamburger .bar {
+    height: 2px;
+    width: 30px;
+    position: relative;
+    background-color: white;
+    z-index: -1;
+}
+#header .hamburger .bar::after,
+#header .hamburger .bar::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    transition: .3s ease;
+    transition-property: top, bottom;
+}
+#header .hamburger .bar::after {
+    top: 8px;
+}
+#header .hamburger .bar::before {
+    bottom: 8px;
+}
+#header .hamburger .active .bar::before{
+    bottom: 0;
+}
+#header .hamburger .active .bar::after{
+    top: 0;
+}
+/*end header*/
+
 /*hero section*/
 #hero{
     background-image: url(./images/she\ hacks.1.webp);
@@ -123,6 +257,7 @@ p{
     line-height: 2.5rem;
     font-weight: 300;
     letter-spacing: .05rem;
+    font-weight: 600;
 }
 #organisers .organisers-bottom{
     display: floex;
@@ -167,6 +302,7 @@ p{
     margin-bottom: 10px;
     text-transform: uppercase;
     text-align: left;
+    font-weight: 600;
 }
 
 /*end organisers section*/
@@ -179,6 +315,7 @@ p{
 }
 #prizes .prizes-header h1{
     margin-bottom: 2px;
+    font-weight: 500;
 }
 #prizes .all-prizes{
     display: flex;
@@ -197,7 +334,7 @@ p{
     border-radius: 10px;
 }
 #prizes .prize-info{
-    padding: 93px;
+    padding: 150px;
     flex-basis: 50%;
     height: 30%;
     display: flex;
@@ -208,12 +345,12 @@ p{
     color: white;
 }
 #prizes .prize-info h1 {
-    font-size: 1.8rem;
+    font-size: 3rem;
     font-weight: 600;
     align-content: center;
 }
 #prizes .prize-info h2 {
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 700;
     margin-top: 10px;
     color:rgb(253, 14, 6);
@@ -374,6 +511,16 @@ p{
 }
 /*end footer*/
 /*keyframes*/
+@keyframes hamburger_puls {
+    0%{
+        opacity: 1;
+        transform: scale(1);
+    }
+    100%{
+        opacity: 0;
+        transform: scale(1.4);
+    }
+}
 @keyframes text_reveal_box{
     50% {
         width: 100%;
@@ -391,3 +538,127 @@ p{
 
 }
 /*end keyframes*/
+
+/*media query for tablet*/
+@media only screen and (min-width: 768px) {
+    .cta {
+        font-size: 2.5rem;
+        padding: 20px 60px;
+    }
+    h1.section-title {
+        font-size: 4rem;
+    }
+    /*hero*/
+    #hero h1 {
+        font-size: 3rem;
+    }
+    /*end hero*/
+
+    /*organisers section*/
+    #organisers .organisers-bottom .organiser-item {
+        flex-basis: 45%;
+        margin: 2.5%;
+    }
+    /*end organisers section*/
+
+    /*prizes*/
+    #prizes .prize-item {
+        flex-direction: row;
+    }
+
+    #prizes .prize-item {
+        height: 400px;
+        margin: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+    #prizes .all-prizes .prize-info {
+        height: 400px;
+
+    }
+    #prizes .all-prizes .prize-img {
+        height: 400px;
+    }
+    /*end prizes*/
+
+    /*about*/
+    #about .about {
+        flex-direction: row;
+    }
+    #about .col-left {
+        width: 600px;
+        height: 400px;
+        padding-left: 60px;
+    }
+    #about .col-right {
+        text-align: left;
+        padding: 30px;
+    }
+    #about .col-right h1 {
+        text-align: left;
+    }
+    /*end about*/
+
+    /*contact*/
+    #contact .contact {
+        flex-direction: column;
+        padding: 100px 0;
+        align-items: center;
+        justify-content: center;
+        min-width: 20vh;
+    }
+    #contact .contact-items {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+    #contact .contact-item {
+        margin: 20px;
+        flex-direction: row;
+    }
+    #contact .contact-item .icon {
+        height: 100px;
+        width: 100px;
+    }
+    #contact .contact-item .icon img {
+        object-fit: contain;
+    }
+    contact .contact-item .contact-info {
+        width: 100%;
+        text-align: left;
+        padding-left: 20px;
+    }
+}
+/*end contact*/
+/*end media query for tablet*/
+
+/*media querey for desktop*/
+@media only screen and (min-width: 1200px) {
+/*header*/
+#header .hamburger {
+    display: none;
+}
+#header .nav-list ul {
+    position: initial;
+    display: block;
+    height: auto;
+    width: fit-content;
+    background-color: transparent;
+}
+#header .nav-list ul li{
+    display: inline-block;
+}
+#header .nav-list ul a {
+    font-size: 1.8rem;
+}
+#header .nav-list ul a:after {
+    display: none;
+}
+
+/*end header*/
+#organisers .organisers-bottom .organiser-item {
+    flex-basis: 22%;
+    margin: 1.5%;
+}
+}
+/*end media querey for desktop*/
